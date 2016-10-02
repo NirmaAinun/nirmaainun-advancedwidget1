@@ -18,16 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
         final LinearLayout llMain = (LinearLayout) findViewById(R.id.LinearLayoutMain);
         addEditText(llMain);
-        final EditText etNama = new EditText(this);
-        llMain.addView(etNama);
-        etNama.setHint("Isikan Nama Anak");
-
-        final EditText etUmur = new EditText(this);
-        llMain.addView(etUmur);
-        etUmur.setHint("Isikan Umur Anak");
-        etUmur.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         Button bProses = new Button(this);
+
         bProses.setText("Proses");
         llMain.addView(bProses);
         final TextView tvHasil = new TextView(this);
@@ -38,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 doProses(llMain);
             }
         });
-
+    }
     private void doProses(LinearLayout llMain) {
         String hasil = "";
         for (int i = 0; i <= 5; i++) {
@@ -49,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             String umur = etUmur.getText().toString();
 
             if (umur.isEmpty())
-                umur = "0"
+                umur = "0";
             if (!nama.isEmpty())
                 hasil += "Anak ke-" + (i + 1) + ": " + nama + "umur" + umur + "tahun\n";
         }
@@ -62,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 1; i <= 5; i++) {
             final EditText etNama = new EditText(this);
             llMain.addView(etNama);
-            etNama.setHint("Isikan Nama Anak");
+            etNama.setHint("Isikan Nama Anak" + i);
 
             final EditText etUmur = new EditText(this);
             llMain.addView(etUmur);
-            etUmur.setHint("Isikan Umur Anak");
+            etUmur.setHint("Isikan Umur Anak" + i);
             etUmur.setInputType(InputType.TYPE_CLASS_NUMBER);
         }
     }
